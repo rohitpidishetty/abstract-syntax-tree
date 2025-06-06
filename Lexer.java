@@ -1,4 +1,4 @@
-package flat.LexicalAnalyzer;
+package javap.flat.LexicalAnalyzer;
 
 import java.util.ArrayList;
 import java.util.List;

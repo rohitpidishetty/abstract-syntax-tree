@@ -1,0 +1,78 @@
+{
+  "token": "/", 
+  "type": "Division", 
+  "nature": "Sub tree", 
+  "significance": 4, 
+  "left": {
+    "token": "*", 
+    "type": "Multiplication", 
+    "nature": "Sub tree", 
+    "significance": 5, 
+    "left": {
+      "token": "*", 
+      "type": "Multiplication", 
+      "nature": "Sub tree", 
+      "significance": 5, 
+      "left": {
+        "token": "12", 
+        "type": "32 bit Integer", 
+        "nature": "Operand", 
+        "significance": 0, 
+        "left": null, 
+        "right": null
+      }, 
+      "right": {
+        "token": "+", 
+        "type": "Addition", 
+        "nature": "Sub tree", 
+        "significance": 2, 
+        "left": {
+          "token": "+", 
+          "type": "Addition", 
+          "nature": "Sub tree", 
+          "significance": 2, 
+          "left": {
+            "token": "12", 
+            "type": "32 bit Integer", 
+            "nature": "Operand", 
+            "significance": 0, 
+            "left": null, 
+            "right": null
+          }, 
+          "right": {
+            "token": "2", 
+            "type": "32 bit Integer", 
+            "nature": "Operand", 
+            "significance": 0, 
+            "left": null, 
+            "right": null
+          }
+        }, 
+        "right": {
+          "token": "4", 
+          "type": "32 bit Integer", 
+          "nature": "Operand", 
+          "significance": 0, 
+          "left": null, 
+          "right": null
+        }
+      }
+    }, 
+    "right": {
+      "token": "2", 
+      "type": "32 bit Integer", 
+      "nature": "Operand", 
+      "significance": 0, 
+      "left": null, 
+      "right": null
+    }
+  }, 
+  "right": {
+    "token": "50", 
+    "type": "32 bit Integer", 
+    "nature": "Operand", 
+    "significance": 0, 
+    "left": null, 
+    "right": null
+  }
+}

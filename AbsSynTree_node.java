@@ -1,5 +1,8 @@
-package flat.LexicalAnalyzer;
+package javap.flat.LexicalAnalyzer;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
@@ -86,27 +89,41 @@ public class AbsSynTree_node {
 
   public String json() {
     StringBuilder sb = new StringBuilder();
-    toJson(this, sb);
+    toJson(this, sb, 0);
     return sb.toString();
   }
 
-  private void toJson(AbsSynTree_node node, StringBuilder sb) {
+  public String json(String filename) throws Exception {
+    StringBuilder sb = new StringBuilder();
+    toJson(this, sb, 0);
+    File file = new File(filename);
+    FileWriter write = new FileWriter(file);
+    BufferedWriter writer = new BufferedWriter(write);
+    writer.write(sb.toString());
+    writer.close();
+    write.close();
+    return "File " + filename + " has been generated";
+  }
+
+  private void toJson(AbsSynTree_node node, StringBuilder sb, int padding) {
+    String pad = " ".repeat(padding);
+    String innerIndent = " ".repeat(padding + 2);
     if (node == null) {
       sb.append("null");
       return;
     }
-
     sb.append("{\n");
-    sb.append("\"token\": \"").append(node.token).append("\", \n");
-    sb.append("\"type\": \"").append(node.type).append("\", \n");
-    sb.append("\"nature\": \"").append(node.nature).append("\", \n");
-    sb.append("\"significance\": ").append(node.significance).append(", \n");
-    sb.append("\"left\": ");
-    toJson(node.leftAbsSynTree_node, sb);
+    sb.append(innerIndent).append("\"token\": \"").append(node.token).append("\", \n");
+    sb.append(innerIndent).append("\"type\": \"").append(node.type).append("\", \n");
+    sb.append(innerIndent).append("\"nature\": \"").append(node.nature).append("\", \n");
+    sb.append(innerIndent).append("\"significance\": ").append(node.significance).append(", \n");
+    sb.append(innerIndent).append("\"left\": ");
+    toJson(node.leftAbsSynTree_node, sb, padding + 2);
     sb.append(", \n");
-    sb.append("\"right\": ");
-    toJson(node.rightAbsSynTree_node, sb);
-    sb.append("\n}");
+    sb.append(innerIndent).append("\"right\": ");
+    toJson(node.rightAbsSynTree_node, sb, padding + 2);
+    sb.append("\n");
+    sb.append(pad).append("}");
   }
 
 }

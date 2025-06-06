@@ -1,6 +1,6 @@
-package flat.SyntaxAnalyzer;
+package javap.flat.SyntaxAnalyzer;
 
-import flat.LexicalAnalyzer.AbsSynTree_node;
+import javap.flat.LexicalAnalyzer.AbsSynTree_node;
 
 import java.util.ArrayList;
 import java.util.Arrays;
