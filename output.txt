@@ -1,0 +1,90 @@
+C:> javac .\lex_and_parse_test.java
+C:> java lex_and_parse_test
+
+// Level Order of AST
+/
+* 50
+* 2
+12 +
++ 4
+12 2
+
+// JSON of AST
+{
+  "token": "/",
+  "type": "Division",
+  "nature": "Sub tree",
+  "significance": 4,
+  "left": {
+    "token": "*",
+    "type": "Multiplication",
+    "nature": "Sub tree",
+    "significance": 5,
+    "left": {
+      "token": "*",
+      "type": "Multiplication",
+      "nature": "Sub tree",
+      "significance": 5,
+      "left": {
+        "token": "12",
+        "type": "32 bit Integer",
+        "nature": "Operand",
+        "significance": 0,
+        "left": null,
+        "right": null
+      },
+      "right": {
+        "token": "+",
+        "type": "Addition",
+        "nature": "Sub tree",
+        "significance": 2,
+        "left": {
+          "token": "+",
+          "type": "Addition",
+          "nature": "Sub tree",
+          "significance": 2,
+          "left": {
+            "token": "12",
+            "type": "32 bit Integer",
+            "nature": "Operand",
+            "significance": 0,
+            "left": null,
+            "right": null
+          },
+          "right": {
+            "token": "2",
+            "type": "32 bit Integer",
+            "nature": "Operand",
+            "significance": 0,
+            "left": null,
+            "right": null
+          }
+        },
+        "right": {
+          "token": "4",
+          "type": "32 bit Integer",
+          "nature": "Operand",
+          "significance": 0,
+          "left": null,
+          "right": null
+        }
+      }
+    },
+    "right": {
+      "token": "2",
+      "type": "32 bit Integer",
+      "nature": "Operand",
+      "significance": 0,
+      "left": null,
+      "right": null
+    }
+  },
+  "right": {
+    "token": "50",
+    "type": "32 bit Integer",
+    "nature": "Operand",
+    "significance": 0,
+    "left": null,
+    "right": null
+  }
+}
