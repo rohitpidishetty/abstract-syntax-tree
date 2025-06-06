@@ -1,10 +1,10 @@
 import java.util.Arrays;
 
-import flat.LexicalAnalyzer.Lexer;
-import flat.LexicalAnalyzer.AbsSynTree_node;
-import flat.SyntaxAnalyzer.Parser;
+import javap.flat.LexicalAnalyzer.Lexer;
+import javap.flat.LexicalAnalyzer.AbsSynTree_node;
+import javap.flat.SyntaxAnalyzer.Parser;
 
-public class lex_and_parse_test {
+public class test {
   public static void main(String[] args) {
 
     AbsSynTree_node tree = new Parser(
@@ -18,6 +18,11 @@ public class lex_and_parse_test {
     tree.print_AST();
     System.out.println();
     System.out.println(tree.json());
+    try {
+      System.out.println(tree.json("./AST.json"));
+    } catch (Exception e) {
+      System.out.println("Error generating file");
+    }
 
   }
 }
