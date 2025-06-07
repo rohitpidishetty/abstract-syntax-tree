@@ -18,6 +18,7 @@ public class test {
     tree.print_AST();
     System.out.println();
     System.out.println(tree.json());
+    // To save the file locally use this command.
     try {
       System.out.println(tree.json("./AST.json"));
     } catch (Exception e) {
